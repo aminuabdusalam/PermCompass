@@ -1377,3 +1377,46 @@ body {
 @media (min-width: 900px) {
   .serpentine-wrap { padding: 18px; }
 }
+
+
+/* Snapshot card (dashboard) - serpentine as the full card body */
+.snapshot-card {
+  background: #fff;
+  border: 1px solid #e5dfd2;
+  border-radius: 20px;
+  padding: 16px 18px 14px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(64, 130, 109, 0.08);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.snapshot-card:hover {
+  box-shadow: 0 4px 14px rgba(64, 130, 109, 0.16);
+  transform: translateY(-1px);
+}
+.snapshot-serpentine {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.snapshot-serpentine .serpentine.mini {
+  max-height: 220px;
+}
+.snapshot-caption {
+  text-align: center;
+  color: #5c5644;
+  font-size: 14px;
+  margin: 6px 0 4px;
+}
+.snapshot-caption strong { color: var(--primary-dark); }
+.snapshot-cta {
+  display: block;
+  text-align: center;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+@media (min-width: 900px) {
+  .snapshot-serpentine .serpentine.mini { max-height: 280px; }
+}
