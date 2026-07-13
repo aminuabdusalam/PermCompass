@@ -1257,7 +1257,7 @@ body {
 .serpentine-wrap {
   width: 100%;
   margin: 8px 0 16px;
-  padding: 12px;
+  padding: 10px 10px 6px;
   background: #fff;
   border: 1px solid #e5dfd2;
   border-radius: 16px;
@@ -1273,9 +1273,6 @@ body {
   height: auto;
   display: block;
   overflow: visible;
-}
-.serpentine.mini {
-  max-height: 130px;
 }
 
 /* Connector segments */
@@ -1384,7 +1381,7 @@ body {
   background: #fff;
   border: 1px solid #e5dfd2;
   border-radius: 20px;
-  padding: 16px 18px 14px;
+  padding: 10px 14px 12px;
   margin-bottom: 16px;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(64, 130, 109, 0.08);
@@ -1396,16 +1393,13 @@ body {
 }
 .snapshot-serpentine {
   width: 100%;
-  margin-bottom: 10px;
-}
-.snapshot-serpentine .serpentine.mini {
-  max-height: 220px;
+  margin-bottom: 6px;
 }
 .snapshot-caption {
   text-align: center;
   color: #5c5644;
   font-size: 14px;
-  margin: 6px 0 4px;
+  margin: 4px 0 2px;
 }
 .snapshot-caption strong { color: var(--primary-dark); }
 .snapshot-cta {
@@ -1414,9 +1408,9 @@ body {
   color: var(--primary);
   font-weight: 600;
   font-size: 13px;
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 @media (min-width: 900px) {
-  .snapshot-serpentine .serpentine.mini { max-height: 280px; }
+  .snapshot-card { padding: 14px 18px 14px; }
 }
