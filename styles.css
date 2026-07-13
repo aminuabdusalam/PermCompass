@@ -1251,3 +1251,129 @@ body {
   color: var(--primary-dark);
   font-weight: 700;
 }
+
+
+/* ============ Serpentine phase chart ============ */
+.serpentine-wrap {
+  width: 100%;
+  margin: 8px 0 16px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #e5dfd2;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(64, 130, 109, 0.06);
+}
+.serpentine-mini-wrap {
+  padding: 10px 12px 6px;
+  margin: 4px 0 12px;
+}
+.serpentine-wrap.hidden { display: none; }
+.serpentine {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+.serpentine.mini {
+  max-height: 130px;
+}
+
+/* Connector segments */
+.serp-seg {
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  fill: none;
+}
+.serpentine.mini .serp-seg { stroke-width: 1.4; }
+.serp-seg-completed { stroke: var(--primary); }
+.serp-seg-current   { stroke: #d69339; stroke-dasharray: 2 1.5; }
+.serp-seg-future    { stroke: #d8d1c0; }
+
+/* Nodes */
+.serp-node {
+  stroke-width: 1.4;
+  transition: transform 0.15s ease;
+}
+.serp-node-completed {
+  fill: var(--primary);
+  stroke: var(--primary-dark);
+}
+.serp-node-current {
+  fill: #e8a94a;
+  stroke: #a76b18;
+  filter: drop-shadow(0 0 3px rgba(232, 169, 74, 0.55));
+  animation: serpPulse 1.8s ease-in-out infinite;
+}
+.serp-node-future {
+  fill: #f5f0e2;
+  stroke: #bfb8a5;
+}
+@keyframes serpPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); transform-origin: center; }
+}
+/* SVG scale animation needs transform-origin trick — override via CSS var */
+.serp-node-current { transform-box: fill-box; transform-origin: center; }
+
+/* Text inside / below nodes */
+.serp-num, .serp-check {
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  pointer-events: none;
+}
+.serp-num { font-size: 4.2px; }
+.serp-num.mini { font-size: 3.4px; }
+.serp-num-completed, .serp-num-current, .serp-check { fill: #fff; }
+.serp-num-future { fill: #8a8371; }
+.serp-check { font-size: 5px; }
+.serp-check.mini { font-size: 4px; }
+
+.serp-label {
+  text-anchor: middle;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 3.1px;
+  font-weight: 600;
+  pointer-events: none;
+}
+.serp-label-completed { fill: var(--primary-dark); }
+.serp-label-current   { fill: #7a4d0d; }
+.serp-label-future    { fill: #9a927e; }
+
+/* Tracker page: legend + hint */
+.serpentine-legend {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 4px 0 6px;
+  font-size: 12px;
+  color: #6b6551;
+}
+.serp-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.serp-legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  display: inline-block;
+}
+.serp-legend-dot.serp-node-completed { background: var(--primary); border-color: var(--primary-dark); }
+.serp-legend-dot.serp-node-current   { background: #e8a94a; border-color: #a76b18; }
+.serp-legend-dot.serp-node-future    { background: #f5f0e2; border-color: #bfb8a5; }
+.serpentine-hint {
+  text-align: center;
+  font-size: 12px;
+  color: #8a8371;
+  margin: 2px 0 12px;
+  font-style: italic;
+}
+
+@media (min-width: 900px) {
+  .serpentine-wrap { padding: 18px; }
+}
