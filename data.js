@@ -18,8 +18,8 @@ const PHASES = [
     title: 'Skills Verification + PWD Request',
     shortTitle: 'Skills + PWD',
     icon: '📋',
-    minMonths: 0.25,
-    maxMonths: 0.5,
+    minMonths: 0.5,
+    maxMonths: 0.75,
     variesByCountry: false,
     terminal: false
   },
@@ -159,6 +159,7 @@ const CHAPTERS = [
     content: `<p>The first phase turns a real job into a PERM-ready offered position. HR and immigration counsel review the role, the employee's background, the likely EB category, and whether the job requirements can be supported as normal for the position. The job description matters because it becomes the foundation for the wage request, recruitment, and Form ETA 9089.</p>
 <h3>Your role</h3>
 <p>You may be asked to confirm education, prior experience, skills, work locations, and reporting details. You might also review drafts for accuracy. Be careful to distinguish what the job requires from what you personally happen to have. PERM focuses on minimum requirements for the offered role, not a wish list of everything the current employee knows.</p>
+<div class="info-card accent"><p><strong>Regulatory line you cannot cross:</strong> U.S. rules prohibit the sponsored employee from being involved in setting the minimum requirements for the position. The employer and counsel work with your manager to define those requirements. Expect to answer factual questions about your background, but do not try to shape what the job asks for.</p></div>
 <ul><li><strong>Keep records ready:</strong> degrees, transcripts, prior employment dates, and role descriptions.</li><li><strong>Respond quickly:</strong> early clarifications can prevent later rework.</li><li><strong>Avoid overfitting:</strong> requirements that look tailored to one person can create audit risk.</li></ul>
 <div class="key-terms"><h3>Key Terms</h3><dl><dt>Job Description</dt><dd>The employer's statement of duties, requirements, location, and minimum qualifications for the offered role.</dd><dt>PERM Assessment</dt><dd>The early legal and factual review to decide whether the role can support a PERM case.</dd></dl></div>
 <p>This phase is usually measured in weeks. The goal is not to rush past details, but to define a consistent role that can survive later review by the Department of Labor.</p>`,
@@ -166,7 +167,8 @@ const CHAPTERS = [
       { q: 'How long is Phase 1 expected to take in this tracker?', a: ['3 to 4 weeks', '6 to 8 months', '14 to 18 months', '8 to 11 years'], correct: 0, explain: 'The source timeline gives 3 to 4 weeks for PERM assessment and job description finalization.' },
       { q: 'Why is the job description so important?', a: ['It anchors the wage request, recruitment, and PERM form', 'It replaces the I-140 petition', 'It determines passport validity', 'It removes the need for EVLs'], correct: 0, explain: 'The PERM record must stay consistent from job description through filing.' },
       { q: 'Which requirement can increase PERM risk?', a: ['A requirement that appears tailored to only the sponsored employee', 'A clear minimum education requirement', 'A supported work location', 'A consistent list of core duties'], correct: 0, explain: 'Overly tailored requirements can make recruitment and audit review harder.' },
-      { q: 'What should an employee do during this phase?', a: ['Provide accurate background information and review details promptly', 'Contact DOL directly for a wage', 'File Form I-485', 'Skip attorney questionnaires'], correct: 0, explain: 'Employee accuracy and responsiveness help counsel build a clean record.' }
+      { q: 'What should an employee do during this phase?', a: ['Provide accurate background information and review details promptly', 'Contact DOL directly for a wage', 'File Form I-485', 'Skip attorney questionnaires'], correct: 0, explain: 'Employee accuracy and responsiveness help counsel build a clean record.' },
+      { q: 'Who is allowed to set the minimum requirements for the sponsored position?', a: ['The employer and immigration counsel, working with your manager', 'The sponsored employee', 'The Department of Labor', 'The former employer'], correct: 0, explain: 'U.S. regulations prohibit the sponsored employee from being involved in setting the minimum requirements for the position.' }
     ]
   },
   {
@@ -178,15 +180,17 @@ const CHAPTERS = [
     content: `<p>After the role is shaped, counsel verifies that the employee appears to meet the offered job's minimum requirements before the employer files the prevailing wage request. This can include education review, experience review, and drafts of employment verification letters, often called EVLs.</p>
 <h3>Employment verification letters</h3>
 <p>EVLs usually come from prior employers and confirm dates, title, hours, duties, and skills. They are important because the employer must show that the sponsored worker met the requirements before moving into the offered role, unless a narrow exception applies. Drafts should be factual, specific, and consistent with the resume and PERM requirements.</p>
+<p><strong>You are responsible for getting the EVLs signed by your former managers</strong> and returning them to the immigration team. The case cannot move into the recruitment round until counsel has confirmation that you can obtain the required EVLs. Original signed letters may arrive later in the process, but you must confirm feasibility to unblock Phase 3.</p>
 <h3>Prevailing wage request</h3>
-<p>The prevailing wage determination, or PWD, asks the Department of Labor to identify the required minimum wage for the offered job in the location. The employer submits details about duties, requirements, location, and other role facts. This tracker estimates Phase 2 at 1 to 2 weeks because the request preparation is short, while the DOL response arrives in the next phase.</p>
+<p>The prevailing wage determination, or PWD, asks the Department of Labor to identify the required minimum wage for the offered job in the location. The employer submits details about duties, requirements, location, and other role facts. This tracker estimates Phase 2 at 2 to 3 weeks because the request preparation and attorney review of EVLs are short, while the DOL wage response arrives in the next phase.</p>
 <div class="info-card"><p><strong>Practical tip:</strong> Keep old manager contacts, HR portals, pay records, and job descriptions organized. EVL collection is often slower when former employers have changed systems or policies.</p></div>
 <p>Accuracy is more important than flowery language. A strong EVL clearly connects past work to the skills and experience required by the sponsored position.</p>`,
     quiz: [
       { q: 'What does EVL stand for in this process?', a: ['Employment Verification Letter', 'Electronic Visa License', 'Employer Visa Ledger', 'Estimated Validation Limit'], correct: 0, explain: 'EVLs document prior employment details used to support the PERM requirements.' },
       { q: 'What does the PWD establish?', a: ['The required minimum wage for the offered job', 'The employee priority date', 'The green card expiration date', 'The number of dependents on the case'], correct: 0, explain: 'The Department of Labor uses the PWD to set the prevailing wage for the role and location.' },
-      { q: 'How long is Phase 2 estimated to take?', a: ['1 to 2 weeks', '3 to 5 months', '4 to 8 months', '10 to 13 years'], correct: 0, explain: 'The tracker uses 1 to 2 weeks for skills verification, EVL drafts, and PWD request submission.' },
-      { q: 'What makes an EVL useful?', a: ['Specific dates, duties, hours, and skills', 'Only a personal recommendation', 'A copy of a tourist visa', 'A list of hobbies'], correct: 0, explain: 'Specific employment facts help counsel prove the worker met the job requirements.' }
+      { q: 'How long is Phase 2 estimated to take?', a: ['2 to 3 weeks', '3 to 5 months', '4 to 8 months', '10 to 13 years'], correct: 0, explain: 'The tracker uses 2 to 3 weeks for skills verification, EVL drafts, attorney review, and PWD request submission.' },
+      { q: 'What makes an EVL useful?', a: ['Specific dates, duties, hours, and skills', 'Only a personal recommendation', 'A copy of a tourist visa', 'A list of hobbies'], correct: 0, explain: 'Specific employment facts help counsel prove the worker met the job requirements.' },
+      { q: 'Who is responsible for getting the EVLs signed by former managers?', a: ['You, the sponsored employee', 'The Department of Labor', 'USCIS', 'Your current manager at the sponsoring employer'], correct: 0, explain: 'You must chase former managers for signatures and return the signed EVLs so the case can move into recruitment.' }
     ]
   },
   {
@@ -216,6 +220,8 @@ const CHAPTERS = [
     icon: '📢',
     description: 'How recruitment works, why the 30-day wait matters, and how the PERM record is built.',
     content: `<p>Once the PWD is in hand, the employer conducts the PERM labor market test. Recruitment is designed to test whether there are qualified U.S. workers available for the offered role at the required wage. The rules are detailed, so employers typically coordinate closely with immigration counsel and recruiting teams.</p>
+<h3>Round of recruitment: a quarterly cadence</h3>
+<p>Large employers like Microsoft typically test the labor market once per quarter. That means when your PWD and signed EVLs are in hand, your case is placed in the next available round of recruitment rather than starting immediately. This queuing effect is a real reason Phase 4 spans 3 to 5 months instead of 3 to 5 weeks: you may sit briefly waiting for the next cycle to open, then the cycle itself takes months to run.</p>
 <h3>Common recruitment steps</h3>
 <p>For professional positions, recruitment can include a state workforce agency job order, newspaper advertisements, internal posting, and additional professional recruitment steps such as a company website posting, job search website, employee referral program, campus placement, or local publication. The exact mix depends on the role and legal guidance.</p>
 <p>After recruitment ends, the employer must observe a mandatory quiet period before filing. This is often described as the 30-day wait. During and after recruitment, the employer reviews applicants against the job's minimum requirements. The PERM case can proceed only if there is no able, willing, qualified, and available U.S. worker for the offered position.</p>
@@ -225,7 +231,8 @@ const CHAPTERS = [
       { q: 'What is the goal of the PERM labor market test?', a: ['To determine whether qualified U.S. workers are available for the role', 'To renew the employee passport', 'To pick an interview date at USCIS', 'To replace the PWD'], correct: 0, explain: 'PERM recruitment tests the U.S. labor market for the offered job.' },
       { q: 'What is the estimated length of Phase 4?', a: ['3 to 5 months', '3 to 4 weeks', '6 to 8 months', '10 to 13 years'], correct: 0, explain: 'The source timeline sets labor market test and PERM preparation at 3 to 5 months.' },
       { q: 'What is the commonly referenced quiet period after recruitment?', a: ['30 days', '15 days', '6 months', '5 years'], correct: 0, explain: 'A 30-day wait after recruitment is part of the PERM timing structure.' },
-      { q: 'When can the employer proceed toward PERM filing after recruitment?', a: ['When no able, willing, qualified, and available U.S. worker is found', 'When any applicant applies', 'Only after the green card is issued', 'Only if the employee changes jobs'], correct: 0, explain: 'PERM can proceed only if recruitment does not identify a qualified available U.S. worker.' }
+      { q: 'When can the employer proceed toward PERM filing after recruitment?', a: ['When no able, willing, qualified, and available U.S. worker is found', 'When any applicant applies', 'Only after the green card is issued', 'Only if the employee changes jobs'], correct: 0, explain: 'PERM can proceed only if recruitment does not identify a qualified available U.S. worker.' },
+      { q: 'How often does a large employer like Microsoft typically test the labor market?', a: ['About once per quarter', 'Every 30 days', 'Once per week', 'Only after the green card is approved'], correct: 0, explain: 'Recruitment rounds usually run on a quarterly cadence, so your case queues for the next open cycle.' }
     ]
   },
   {
@@ -236,7 +243,8 @@ const CHAPTERS = [
     description: 'What Form ETA 9089 does, how audits work, and why certification creates the priority date.',
     content: `<p>PERM filing is the moment the employer submits Form ETA 9089 to the Department of Labor. The form summarizes the offered job, recruitment steps, prevailing wage, employer details, and the sponsored worker's qualifying background. The employee does not self-petition in a standard employer-sponsored PERM case. The employer owns the labor certification filing.</p>
 <h3>Processing and audits</h3>
-<p>This tracker uses 14 to 18 months for Phase 5 because PERM processing has been lengthy. Some cases are reviewed and certified without audit. Others are audited, meaning DOL asks for supporting documents such as recruitment proof, resumes received, lawful rejection reasons, business necessity materials, or signed declarations. An audit can add substantial time.</p>
+<p>Preparation and filing of Form ETA 9089 itself only takes about 1 to 2 weeks once Phase 4 is done. The rest of Phase 5 is DOL processing after filing, which has been long recently. This tracker uses 14 to 18 months for the total phase because the Department of Labor does not publish processing times and the queue is not trackable. Some cases are reviewed and certified without audit. Others are audited, meaning DOL asks for supporting documents such as recruitment proof, resumes received, lawful rejection reasons, business necessity materials, or signed declarations. <strong>If the case is audited, the employer must respond within 30 days,</strong> which counsel and Microsoft will coordinate on your behalf. An audit can add substantial time to certification.</p>
+<p>Because U.S. regulations restrict how much the sponsored employee can be involved during this window, expect long gaps between updates from your immigration team. Silence usually means the case is sitting in a DOL queue, not that anything is wrong.</p>
 <p>A certified PERM does not by itself grant permanent residence, work authorization, or travel permission. It is a required labor certification that allows the employer to file the I-140 immigrant petition in many EB-2 and EB-3 cases.</p>
 <div class="info-card"><p><strong>Priority date:</strong> For a PERM-based case, the priority date is generally the date the PERM labor certification was filed. That date controls your place in the visa number line.</p></div>
 <ul><li><strong>Certified:</strong> DOL approved the labor certification.</li><li><strong>Denied:</strong> DOL did not approve it, subject to legal strategy and possible review.</li><li><strong>Audited:</strong> DOL requested more documentation before deciding.</li></ul>`,
@@ -245,7 +253,8 @@ const CHAPTERS = [
       { q: 'What is the tracker estimate for PERM processing in Phase 5?', a: ['14 to 18 months', '1 to 2 weeks', '15 days', '0 to 0.5 years'], correct: 0, explain: 'The requested baseline uses 14 to 18 months for PERM filing and processing.' },
       { q: 'What does a certified PERM allow the employer to do next in many cases?', a: ['File the I-140 immigrant petition', 'Print the green card', 'Skip the Visa Bulletin forever', 'Issue a passport'], correct: 0, explain: 'PERM certification supports the later I-140 filing.' },
       { q: 'What is generally the priority date in a PERM-based case?', a: ['The PERM filing date', 'The employee birth date', 'The date the green card arrives', 'The date of first H-1B approval'], correct: 0, explain: 'The PERM filing date usually establishes the priority date for PERM-based cases.' },
-      { q: 'What does a DOL audit mean?', a: ['DOL asks for supporting documentation before deciding', 'The case is automatically denied', 'USCIS has scheduled an interview', 'The employee must leave the U.S.'], correct: 0, explain: 'An audit is a document request and review step, not an automatic denial.' }
+      { q: 'What does a DOL audit mean?', a: ['DOL asks for supporting documentation before deciding', 'The case is automatically denied', 'USCIS has scheduled an interview', 'The employee must leave the U.S.'], correct: 0, explain: 'An audit is a document request and review step, not an automatic denial.' },
+      { q: 'How long does the employer have to respond to a DOL PERM audit?', a: ['30 days', '30 minutes', '6 months', '2 years'], correct: 0, explain: 'The employer must submit the audit response to DOL within a 30-day deadline.' }
     ]
   },
   {
@@ -257,6 +266,7 @@ const CHAPTERS = [
     content: `<p>After PERM certification, the employer files Form I-140, Immigrant Petition for Alien Workers, with USCIS. The I-140 asks USCIS to classify the worker in the requested employment-based category, such as EB-2 or EB-3, and to confirm that the employer can pay the offered wage. The certified PERM, evidence of the employee's qualifications, and employer financial evidence support the filing.</p>
 <h3>Regular versus premium processing</h3>
 <p>Regular processing can take months, so this tracker uses 4 to 8 months. Many I-140 categories allow premium processing for an additional government fee, with a 15-day processing window represented here as 0.5 months. Premium processing speeds the I-140 decision, but it does not make a backlogged priority date current.</p>
+<div class="info-card"><p><strong>Concurrent I-485 filing:</strong> If your priority date is already current on the Visa Bulletin at the time the I-140 is filed or approved, counsel can file your Adjustment of Status (I-485) at the same time. For most Rest of World nationals in EB-2 or EB-3 that is the common path. For India and China, the priority date usually will not be current at this point, and Phase 7 kicks in instead.</p></div>
 <div class="info-card accent"><p><strong>Portability concept:</strong> AC21 rules can help some employees change jobs after an I-140 is approved and an I-485 has been pending at least 180 days, if the new role is in the same or similar occupational classification. Company policy and legal advice matter.</p></div>
 <p>I-140 approval is a major milestone because it confirms the immigrant petition. It still may not mean you can file the final green card application if the Visa Bulletin is backlogged for your category and chargeability country. Keep the approval notice and receipt details handy because later steps often ask for petition history.</p>`,
     quiz: [
@@ -264,7 +274,8 @@ const CHAPTERS = [
       { q: 'What does premium processing change for I-140?', a: ['It speeds the I-140 decision window', 'It removes per-country visa caps', 'It certifies recruitment', 'It grants citizenship'], correct: 0, explain: 'Premium processing accelerates the petition decision but does not fix visa backlogs.' },
       { q: 'What premium processing duration is represented in this tracker?', a: ['0.5 months, about 15 days', '6 to 8 months', '5 years', '0 years for all cases'], correct: 0, explain: 'Phase 6 includes premiumMonths: 0.5 to represent roughly 15 days.' },
       { q: 'What does an approved I-140 generally confirm?', a: ['The immigrant petition classification and supporting eligibility', 'That the green card has already been mailed', 'That no I-485 is ever needed', 'That the employee has become a U.S. citizen'], correct: 0, explain: 'I-140 approval confirms the immigrant petition, not final permanent residence.' },
-      { q: 'What is one AC21 portability concept mentioned here?', a: ['Certain job changes may be possible after I-140 approval and 180 days of pending I-485', 'Any employee can change to any job before PERM', 'Premium processing creates automatic portability', 'Portability applies only to tourist visas'], correct: 0, explain: 'AC21 can support same or similar job portability after specific I-140 and I-485 milestones.' }
+      { q: 'What is one AC21 portability concept mentioned here?', a: ['Certain job changes may be possible after I-140 approval and 180 days of pending I-485', 'Any employee can change to any job before PERM', 'Premium processing creates automatic portability', 'Portability applies only to tourist visas'], correct: 0, explain: 'AC21 can support same or similar job portability after specific I-140 and I-485 milestones.' },
+      { q: 'When can the I-485 typically be filed concurrently with the I-140?', a: ['When the priority date is already current on the Visa Bulletin', 'Only after the green card is mailed', 'Only if the employee is a U.S. citizen', 'Only during a DOL audit'], correct: 0, explain: 'When the priority date is current at I-140 time, counsel can file the I-485 concurrently. That is common for Rest of World nationals but rare for India and China.' }
     ]
   },
   {
