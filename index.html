@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#40826D">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>PermCompass</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header id="top-bar">
+      <button id="back-btn" class="icon-btn hidden" aria-label="Go back">&#8592;</button>
+      <h1 id="page-title">PermCompass</h1>
+      <div id="xp-display" class="xp-badge"><span id="xp-count">0</span> XP</div>
+    </header>
+    <main id="main-content">
+      <section id="view-dashboard" class="view active">
+        <div class="dashboard-hero">
+          <div class="level-circle"><span class="level-icon" id="level-icon">&#129517;</span></div>
+          <h2 id="level-name">Navigator</h2>
+          <div class="xp-bar-container"><div class="xp-bar" id="xp-bar"></div></div>
+          <p class="xp-label" id="xp-label">0 XP</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card"><span class="stat-number" id="stat-current-phase">Not set</span><span class="stat-label">Current Phase</span></div>
+          <div class="stat-card"><span class="stat-number" id="stat-est-done">-</span><span class="stat-label">Est. Done</span></div>
+          <div class="stat-card"><span class="stat-number" id="stat-chapters">0/0</span><span class="stat-label">Chapters</span></div>
+        </div>
+        <div class="section-header"><h3>Tracker Snapshot</h3></div>
+        <div id="tracker-snapshot-card" class="next-chapter-card"></div>
+        <div class="section-header"><h3>Continue Learning</h3></div>
+        <div id="next-chapter-card" class="next-chapter-card"></div>
+      </section>
+      <section id="view-chapters" class="view"><div class="chapter-list" id="chapter-list"></div></section>
+      <section id="view-tracker" class="view"><div id="tracker-root"></div></section>
+      <section id="view-chapter" class="view">
+        <div class="chapter-content" id="chapter-content"></div>
+        <div class="content-actions"><button class="btn btn-primary btn-lg" id="btn-take-quiz">Take the Quiz &#8594;</button></div>
+      </section>
+      <section id="view-quiz" class="view">
+        <div class="quiz-header"><h2 id="quiz-title">Quiz</h2><div class="quiz-progress"><span id="quiz-question-num">1</span> / <span id="quiz-total">1</span></div></div>
+        <div class="quiz-progress-bar-container"><div class="quiz-progress-bar" id="quiz-progress-bar"></div></div>
+        <p class="quiz-question" id="quiz-question-text"></p><div class="quiz-options" id="quiz-options"></div>
+        <div id="quiz-feedback" class="quiz-feedback hidden"></div>
+        <button class="btn btn-primary btn-lg hidden" id="btn-quiz-next">Next Question &#8594;</button>
+      </section>
+      <section id="view-results" class="view">
+        <div class="results-container"><div class="results-icon" id="results-icon">&#127881;</div><h2 id="results-title">Great Job!</h2><p class="results-score" id="results-score">0 / 0 Correct</p><p class="results-xp" id="results-xp">+0 XP earned!</p><div class="results-actions"><button class="btn btn-primary btn-lg" id="btn-results-continue">Continue &#8594;</button><button class="btn btn-outline" id="btn-results-retry">Retry Quiz</button></div></div>
+      </section>
+    </main>
+    <nav id="bottom-nav">
+      <button class="nav-btn active" data-view="dashboard"><span class="nav-icon">&#127968;</span><span class="nav-label">Home</span></button>
+      <button class="nav-btn" data-view="chapters"><span class="nav-icon">&#128218;</span><span class="nav-label">Learn</span></button>
+      <button class="nav-btn" data-view="tracker"><span class="nav-icon">&#129517;</span><span class="nav-label">Tracker</span></button>
+    </nav>
+  </div>
+  <div id="install-banner" class="install-banner hidden" role="dialog" aria-labelledby="install-banner-title"><div class="install-banner-icon">&#129517;</div><div class="install-banner-body"><div id="install-banner-title" class="install-banner-title">Install PermCompass</div><div class="install-banner-text">Add it to your home screen for offline access and a full-screen app experience.</div></div><div class="install-banner-actions"><button id="install-dismiss" class="install-btn install-btn-secondary" type="button">Not now</button><button id="install-accept" class="install-btn install-btn-primary" type="button">Install</button></div></div>
+  <div id="ios-install-modal" class="ios-install-modal hidden" role="dialog" aria-labelledby="ios-install-title" aria-modal="true"><div class="ios-install-content"><button id="ios-install-close" class="ios-install-close" type="button" aria-label="Close">&times;</button><h3 id="ios-install-title">Install on iPhone or iPad</h3><ol class="ios-install-steps"><li>Tap the <strong>Share</strong> button <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align:-3px"><path d="M12 3l4 4h-3v8h-2V7H8l4-4zm7 12v4H5v-4H3v4a2 2 0 002 2h14a2 2 0 002-2v-4h-2z"/></svg> at the bottom of Safari.</li><li>Scroll down and tap <strong>Add to Home Screen</strong>.</li><li>Tap <strong>Add</strong> in the top-right corner.</li></ol></div></div>
+  <script src="data.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) { window.addEventListener('load', function() { navigator.serviceWorker.register('./sw.js').catch(function(err) { console.warn('SW registration failed:', err); }); }); }
+  (function() {
+    var DISMISS_KEY = 'pc_install_dismissed_at', DISMISS_TTL_DAYS = 30, SHOW_DELAY_MS = 4000, deferredPrompt = null;
+    var banner = document.getElementById('install-banner'), iosModal = document.getElementById('ios-install-modal'), acceptBtn = document.getElementById('install-accept'), dismissBtn = document.getElementById('install-dismiss'), iosCloseBtn = document.getElementById('ios-install-close');
+    function isStandalone() { return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true; }
+    function isIos() { var ua = window.navigator.userAgent; return /iPad|iPhone|iPod/.test(ua) && !window.MSStream; }
+    function wasRecentlyDismissed() { try { var ts = parseInt(localStorage.getItem(DISMISS_KEY) || '0', 10); return ts && ((Date.now() - ts) / (1000 * 60 * 60 * 24)) < DISMISS_TTL_DAYS; } catch (e) { return false; } }
+    function markDismissed() { try { localStorage.setItem(DISMISS_KEY, Date.now().toString()); } catch (e) {} }
+    function showBanner() { if (!banner) return; banner.classList.remove('hidden'); requestAnimationFrame(function() { banner.classList.add('visible'); }); }
+    function hideBanner() { if (!banner) return; banner.classList.remove('visible'); setTimeout(function() { banner.classList.add('hidden'); }, 250); }
+    function showIosModal() { if (!iosModal) return; iosModal.classList.remove('hidden'); requestAnimationFrame(function() { iosModal.classList.add('visible'); }); }
+    function hideIosModal() { if (!iosModal) return; iosModal.classList.remove('visible'); setTimeout(function() { iosModal.classList.add('hidden'); }, 250); }
+    if (isStandalone() || wasRecentlyDismissed()) return;
+    window.addEventListener('beforeinstallprompt', function(e) { e.preventDefault(); deferredPrompt = e; setTimeout(showBanner, SHOW_DELAY_MS); });
+    if (isIos()) setTimeout(showBanner, SHOW_DELAY_MS);
+    window.addEventListener('appinstalled', function() { hideBanner(); hideIosModal(); markDismissed(); });
+    if (acceptBtn) acceptBtn.addEventListener('click', function() { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(function(choice) { if (choice && choice.outcome === 'dismissed') markDismissed(); deferredPrompt = null; hideBanner(); }); } else if (isIos()) { hideBanner(); showIosModal(); } else { hideBanner(); } });
+    if (dismissBtn) dismissBtn.addEventListener('click', function() { markDismissed(); hideBanner(); });
+    if (iosCloseBtn) iosCloseBtn.addEventListener('click', hideIosModal);
+    if (iosModal) iosModal.addEventListener('click', function(e) { if (e.target === iosModal) hideIosModal(); });
+  })();
+  </script>
+  <script>
+  (function() {
+    'use strict';
+    var STORAGE_KEY = 'pc_state';
+    var XP_VALUES = window.XP_VALUES || { chapterRead: 10, quizCorrect: 5, quizBonus: 25 };
+    var state, currentChapter, currentQuiz, quizIndex, quizScore, currentView;
+    function chapters() { return typeof CHAPTERS !== 'undefined' ? CHAPTERS : []; }
+    function phases() { return typeof PHASES !== 'undefined' ? PHASES : []; }
+    function levels() { return (typeof LEVELS !== 'undefined' && LEVELS.length) ? LEVELS : [{ minXP: 0, name: 'Navigator', icon: '🧭' }]; }
+    function countries() { return typeof COUNTRIES !== 'undefined' ? COUNTRIES : []; }
+    function categories() { return typeof CATEGORIES !== 'undefined' ? CATEGORIES : []; }
+    function waits() { return typeof COUNTRY_WAITS !== 'undefined' ? COUNTRY_WAITS : {}; }
+    function esc(v) { return String(v == null ? '' : v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+    function defState() { return { xp: 0, chaptersRead: [], chaptersCompleted: [], quizScores: {}, tracker: null }; }
+    function loadState() { try { state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || defState(); } catch(e) { state = defState(); } var d = defState(); for (var k in d) if (state[k] === undefined) state[k] = d[k]; if (!Array.isArray(state.chaptersRead)) state.chaptersRead = []; if (!Array.isArray(state.chaptersCompleted)) state.chaptersCompleted = []; if (!state.quizScores) state.quizScores = {}; }
+    function saveState() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {} }
+    function addXP(n) { state.xp += n; saveState(); updateXP(); }
+    function chNum(ch) { return chapters().findIndex(function(c) { return c.id === ch.id; }) + 1; }
+    function currentLevel() { var all = levels(), lvl = all[0]; for (var i = 0; i < all.length; i++) if (state.xp >= all[i].minXP) lvl = all[i]; return lvl; }
+    function nextLevel() { var all = levels(); for (var i = 0; i < all.length; i++) if (state.xp < all[i].minXP) return all[i]; return null; }
+    function updateXP() { var lvl = currentLevel(), next = nextLevel(); document.getElementById('xp-count').textContent = state.xp; document.getElementById('level-name').textContent = lvl.name; document.getElementById('level-icon').textContent = lvl.icon; if (next) { var pct = ((state.xp - lvl.minXP) / (next.minXP - lvl.minXP)) * 100; document.getElementById('xp-bar').style.width = Math.max(0, Math.min(100, pct)) + '%'; document.getElementById('xp-label').textContent = state.xp + ' / ' + next.minXP + ' XP to next level'; } else { document.getElementById('xp-bar').style.width = '100%'; document.getElementById('xp-label').textContent = 'Max level reached! ' + state.xp + ' XP'; } }
+    function showView(id) { currentView = id; document.querySelectorAll('.view').forEach(function(v) { v.classList.remove('active'); }); var view = document.getElementById('view-' + id); if (view) view.classList.add('active'); document.querySelectorAll('.nav-btn').forEach(function(b) { b.classList.toggle('active', b.dataset.view === id); }); var back = document.getElementById('back-btn'), title = document.getElementById('page-title'); back.classList.toggle('hidden', id === 'dashboard'); if (id === 'dashboard') { title.textContent = 'PermCompass'; renderDashboard(); } else if (id === 'chapters') { title.textContent = 'Learn'; renderChapters(); } else if (id === 'tracker') { title.textContent = 'Tracker'; renderTracker(); } else if (id === 'chapter') { title.textContent = currentChapter ? 'Chapter ' + chNum(currentChapter) : 'Chapter'; } else if (id === 'quiz') title.textContent = 'Quiz'; else if (id === 'results') title.textContent = 'Results'; updateXP(); window.scrollTo(0, 0); }
+    function back() { if (currentView === 'chapter' || currentView === 'quiz' || currentView === 'results') showView('chapters'); else showView('dashboard'); }
+    function configured() { return !!(state.tracker && state.tracker.country && state.tracker.category); }
+    function renderDashboard() { var total = chapters().length, done = state.chaptersCompleted.filter(function(id) { return chapters().some(function(c) { return c.id === id; }); }).length; var tr = state.tracker || {}, ph = tr.currentPhaseId ? findPhase(tr.currentPhaseId) : null, comp = configured() ? completionRange() : null; document.getElementById('stat-chapters').textContent = done + '/' + total; document.getElementById('stat-current-phase').textContent = configured() ? (ph ? ph.shortTitle : 'Not started') : 'Not set'; document.getElementById('stat-est-done').textContent = comp ? dateRange(comp.endMin, comp.endMax) : '-'; var snap = document.getElementById('tracker-snapshot-card'); if (configured()) { snap.innerHTML = '<div class="ncc-top"><div class="ncc-icon">🧭</div><div class="ncc-info"><h4>' + esc(ph ? 'Current phase: ' + ph.shortTitle : 'Not started yet') + '</h4><p>' + esc('Estimated done ' + dateRange(comp.endMin, comp.endMax)) + '</p></div></div><span class="ncc-cta">View tracker</span>'; } else { snap.innerHTML = '<div class="ncc-top"><div class="ncc-icon">🧭</div><div class="ncc-info"><h4>Set up your tracker</h4><p>Choose your country, EB category, and current phase to estimate your path.</p></div></div><span class="ncc-cta">Start setup</span>'; } snap.onclick = function() { showView('tracker'); }; var next = chapters().find(function(c) { return !state.chaptersCompleted.includes(c.id); }), card = document.getElementById('next-chapter-card'); if (next) { var isRead = state.chaptersRead.includes(next.id); card.innerHTML = '<div class="ncc-top"><div class="ncc-icon">' + esc(next.icon || '📚') + '</div><div class="ncc-info"><h4>Chapter ' + chNum(next) + ': ' + esc(next.title) + '</h4><p>' + esc(isRead ? 'Ready for quiz!' : next.description || '') + '</p></div></div><span class="ncc-cta">Continue</span>'; card.onclick = function() { openChapter(next.id); }; } else { card.innerHTML = '<div class="ncc-top"><div class="ncc-icon">🎉</div><div class="ncc-info"><h4>All chapters complete</h4><p>You finished the learning path.</p></div></div>'; card.onclick = null; } }
+    function renderChapters() { var list = document.getElementById('chapter-list'); list.innerHTML = ''; if (!chapters().length) { list.innerHTML = '<p class="empty-state">Chapter data is loading. Make sure data.js is available.</p>'; return; } chapters().forEach(function(ch) { var done = state.chaptersCompleted.includes(ch.id), read = state.chaptersRead.includes(ch.id), score = state.quizScores[ch.id], card = document.createElement('div'); card.className = 'chapter-card ' + (done ? 'completed' : (read ? 'current' : '')); card.innerHTML = '<div class="ch-icon">' + esc(done ? '✅' : (ch.icon || '📚')) + '</div><div class="ch-info"><div class="ch-num">Chapter ' + chNum(ch) + '</div><div class="ch-title">' + esc(ch.title) + '</div><div class="ch-desc">' + esc(ch.description || '') + '</div>' + (score !== undefined ? '<div class="ch-num">Quiz: ' + score + '%</div>' : '') + '</div><div class="ch-status">' + (done ? '✓' : '›') + '</div>'; card.addEventListener('click', function() { openChapter(ch.id); }); list.appendChild(card); }); }
+    function openChapter(id) { currentChapter = chapters().find(function(c) { return c.id === id; }); if (!currentChapter) return; document.getElementById('chapter-content').innerHTML = currentChapter.content || '<h2>' + esc(currentChapter.title) + '</h2>'; if (!state.chaptersRead.includes(id)) { state.chaptersRead.push(id); addXP(XP_VALUES.chapterRead); } var btn = document.getElementById('btn-take-quiz'); if (currentChapter.quiz && currentChapter.quiz.length) { btn.style.display = 'block'; btn.textContent = state.chaptersCompleted.includes(id) ? 'Retake Quiz →' : 'Take the Quiz →'; } else btn.style.display = 'none'; saveState(); showView('chapter'); }
+    function qText(q) { return q.q || q.question || ''; }
+    function qOpts(q) { return q.a || q.options || []; }
+    function qExplain(q) { return q.explain || q.explanation || ''; }
+    function startQuiz() { if (!currentChapter || !currentChapter.quiz || !currentChapter.quiz.length) return; currentQuiz = currentChapter.quiz; quizIndex = 0; quizScore = 0; document.getElementById('quiz-title').textContent = currentChapter.title + ' Quiz'; document.getElementById('quiz-total').textContent = currentQuiz.length; showView('quiz'); renderQuestion(); }
+    function renderQuestion() { if (quizIndex >= currentQuiz.length) { results(); return; } var q = currentQuiz[quizIndex]; document.getElementById('quiz-question-num').textContent = quizIndex + 1; document.getElementById('quiz-question-text').textContent = qText(q); document.getElementById('quiz-progress-bar').style.width = ((quizIndex / currentQuiz.length) * 100) + '%'; document.getElementById('quiz-feedback').classList.add('hidden'); document.getElementById('btn-quiz-next').classList.add('hidden'); var opts = document.getElementById('quiz-options'); opts.innerHTML = ''; qOpts(q).forEach(function(opt, i) { var b = document.createElement('button'); b.className = 'quiz-option'; b.type = 'button'; b.textContent = opt; b.addEventListener('click', function() { answer(i); }); opts.appendChild(b); }); }
+    function answer(idx) { var q = currentQuiz[quizIndex], ok = idx === q.correct; if (ok) { quizScore++; addXP(XP_VALUES.quizCorrect); } document.querySelectorAll('.quiz-option').forEach(function(b, i) { b.disabled = true; b.classList.add('disabled'); if (i === q.correct) b.classList.add('correct'); if (i === idx && !ok) b.classList.add('incorrect'); }); var fb = document.getElementById('quiz-feedback'); fb.classList.remove('hidden', 'incorrect-fb'); if (!ok) fb.classList.add('incorrect-fb'); fb.innerHTML = '<strong>' + (ok ? '✅ Correct!' : '❌ Incorrect') + '</strong><p>' + esc(qExplain(q)) + '</p>'; var next = document.getElementById('btn-quiz-next'); next.classList.remove('hidden'); next.textContent = quizIndex < currentQuiz.length - 1 ? 'Next Question →' : 'See Results →'; }
+    function nextQuestion() { quizIndex++; if (quizIndex >= currentQuiz.length) results(); else renderQuestion(); }
+    function results() { var total = currentQuiz.length, pct = Math.round((quizScore / total) * 100), passed = pct >= 70, earned = quizScore * XP_VALUES.quizCorrect; if (passed && !state.chaptersCompleted.includes(currentChapter.id)) { state.chaptersCompleted.push(currentChapter.id); addXP(XP_VALUES.quizBonus); earned += XP_VALUES.quizBonus; } state.quizScores[currentChapter.id] = pct; saveState(); document.getElementById('results-icon').textContent = passed ? '🎉' : '📚'; document.getElementById('results-title').textContent = passed ? (pct === 100 ? 'Perfect Score!' : 'Great Job!') : 'Keep Learning!'; document.getElementById('results-score').textContent = quizScore + ' / ' + total + ' Correct (' + pct + '%)'; document.getElementById('results-xp').textContent = '+' + earned + ' XP earned!'; document.getElementById('btn-results-retry').style.display = passed ? 'none' : 'block'; showView('results'); }
+    function todayIso() { var d = new Date(), m = String(d.getMonth() + 1).padStart(2, '0'), day = String(d.getDate()).padStart(2, '0'); return d.getFullYear() + '-' + m + '-' + day; }
+    function parseIso(v) { if (!v) return new Date(); var p = v.split('-').map(function(n) { return parseInt(n, 10); }); return p.length === 3 && !p.some(isNaN) ? new Date(p[0], p[1] - 1, p[2]) : new Date(); }
+    function addMonths(date, months) { var d = new Date(date.getTime()); d.setDate(d.getDate() + Math.round((months || 0) * 30.44)); return d; }
+    function fmt(date) { return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }); }
+    function dateRange(a, b) { var x = fmt(a), y = fmt(b); return x === y ? x : x + ' - ' + y; }
+    function findPhase(id) { return phases().find(function(p) { return p.id === id; }) || null; }
+    function getWait() { var tr = state.tracker || {}, byCountry = waits()[tr.country] || {}; return byCountry[tr.category] || { minYears: 0, maxYears: 0, note: '' }; }
+    function phaseMonths(p) { if (!p) return { min: 0, max: 0, note: '' }; if (p.variesByCountry || p.id === 'p7') { var w = getWait(); return { min: (w.minYears || 0) * 12, max: (w.maxYears || 0) * 12, note: w.note || '' }; } return { min: p.minMonths || 0, max: p.maxMonths || 0, note: '' }; }
+    function timelineItems() { var list = phases(), tr = state.tracker || {}, idx = tr.currentPhaseId ? list.findIndex(function(p) { return p.id === tr.currentPhaseId; }) : -1, start = parseIso(tr.phaseStartDate || todayIso()), base = new Date(), min = 0, max = 0; return list.map(function(p, i) { var status = i < idx ? 'completed' : (i === idx ? 'current' : 'future'), m = phaseMonths(p), item = { phase: p, status: status, waitNote: m.note }; if (status === 'completed') return item; if (status === 'current') { item.started = start; item.endMin = addMonths(start, m.min); item.endMax = addMonths(start, m.max); return item; } item.startMin = addMonths(base, min); item.startMax = addMonths(base, max); min += m.min; max += m.max; item.endMin = addMonths(base, min); item.endMax = addMonths(base, max); return item; }); }
+    function completionRange() { var items = timelineItems(); if (!items.length) return null; var last = items[items.length - 1]; return { endMin: last.endMin || last.started || new Date(), endMax: last.endMax || last.started || new Date() }; }
+    function renderTracker() { var root = document.getElementById('tracker-root'); if (!phases().length || !countries().length || !categories().length) { root.innerHTML = '<p class="empty-state">Tracker data is loading. Make sure data.js is available.</p>'; return; } configured() ? renderTimeline() : renderForm(); }
+    function renderForm() { var root = document.getElementById('tracker-root'), tr = state.tracker || {}; root.innerHTML = '<div class="chapter-content"><h2>Set up your tracker</h2><p>Tell PermCompass where you are today, then see an estimated path across the full employer-sponsored green card journey.</p><form class="tracker-form" id="tracker-form">' +
+      '<label>Country of chargeability<select id="tracker-country" required><option value="">Select country</option>' + countries().map(function(c) { return '<option value="' + esc(c) + '" ' + (tr.country === c ? 'selected' : '') + '>' + esc(c) + '</option>'; }).join('') + '</select></label>' +
+      '<label>EB category<select id="tracker-category" required><option value="">Select category</option>' + categories().map(function(c) { return '<option value="' + esc(c) + '" ' + (tr.category === c ? 'selected' : '') + '>' + esc(c) + '</option>'; }).join('') + '</select></label>' +
+      '<label>Current phase<select id="tracker-phase" required><option value="__not_started" ' + (!tr.currentPhaseId ? 'selected' : '') + '>Not started yet</option>' + phases().map(function(p) { return '<option value="' + esc(p.id) + '" ' + (tr.currentPhaseId === p.id ? 'selected' : '') + '>' + esc(p.shortTitle || p.title || p.id) + '</option>'; }).join('') + '</select></label>' +
+      '<label>When did you enter this phase?<input type="date" id="tracker-start" value="' + esc(tr.phaseStartDate || todayIso()) + '"></label><button type="submit" class="btn btn-primary btn-lg">Save tracker</button></form></div>'; document.getElementById('tracker-form').addEventListener('submit', saveTracker); }
+    function saveTracker(e) { e.preventDefault(); state.tracker = { country: document.getElementById('tracker-country').value || null, category: document.getElementById('tracker-category').value || null, currentPhaseId: document.getElementById('tracker-phase').value === '__not_started' ? null : document.getElementById('tracker-phase').value, phaseStartDate: document.getElementById('tracker-start').value || todayIso() }; saveState(); renderDashboard(); renderTimeline(); }
+    function renderTimeline() { var root = document.getElementById('tracker-root'), tr = state.tracker, ph = tr.currentPhaseId ? findPhase(tr.currentPhaseId) : null, done = completionRange(); var summary = ph ? 'You are in ' + ph.shortTitle + ', estimated done ' + dateRange(done.endMin, done.endMax) + '.' : 'You have not started yet. Estimated done ' + dateRange(done.endMin, done.endMax) + '.'; root.innerHTML = '<div class="chapter-content"><h2>Your tracker</h2><p>' + esc(summary) + '</p><p><strong>' + esc(tr.country) + '</strong> chargeability, <strong>' + esc(tr.category) + '</strong> category</p></div><div class="tracker-timeline" id="tracker-timeline"></div><button class="btn btn-outline btn-lg" id="btn-edit-tracker">Edit setup</button><div class="tracker-disclaimer"><strong>Estimates only.</strong> Not legal advice. Consult your immigration attorney. Priority date estimates as of mid-2026 - check the monthly <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener">Visa Bulletin</a> for the current status.</div>'; var line = document.getElementById('tracker-timeline'); timelineItems().forEach(function(item) { var p = item.phase, m = phaseMonths(p), row = document.createElement('div'), note = '', dateText = '', icon = item.status === 'completed' ? '✓' : (p.icon || '🧭'); row.className = 'tracker-phase ' + item.status; if (item.status === 'completed') dateText = 'Completed or already passed'; else if (item.status === 'current') dateText = 'Started ' + fmt(item.started) + ', estimated end ' + dateRange(item.endMin, item.endMax); else if (p.terminal) dateText = 'Estimated arrival ' + dateRange(item.endMin, item.endMax); else dateText = 'Estimated start ' + dateRange(item.startMin, item.startMax) + ', end ' + dateRange(item.endMin, item.endMax); if (p.variesByCountry || p.id === 'p7') note = '<div class="tracker-phase-note">Country wait: ' + esc((m.min / 12) + ' - ' + (m.max / 12) + ' years') + (m.note ? '. ' + esc(m.note) : '') + '</div>'; row.innerHTML = '<div class="tracker-phase-icon">' + esc(icon) + '</div><div><div class="tracker-phase-title">' + esc(p.number ? 'Phase ' + p.number + ': ' + (p.shortTitle || p.title) : (p.shortTitle || p.title)) + '</div><div class="tracker-phase-date">' + esc(dateText) + '</div>' + note + '</div>'; line.appendChild(row); }); document.getElementById('btn-edit-tracker').addEventListener('click', renderForm); }
+    function init() { loadState(); currentView = 'dashboard'; document.querySelectorAll('.nav-btn').forEach(function(btn) { btn.addEventListener('click', function() { showView(btn.dataset.view); }); }); document.getElementById('back-btn').addEventListener('click', back); document.getElementById('btn-take-quiz').addEventListener('click', startQuiz); document.getElementById('btn-quiz-next').addEventListener('click', nextQuestion); document.getElementById('btn-results-continue').addEventListener('click', function() { showView('chapters'); }); document.getElementById('btn-results-retry').addEventListener('click', startQuiz); showView('dashboard'); }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+  })();
+  </script>
+</body>
+</html>
+
+
