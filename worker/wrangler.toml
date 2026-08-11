@@ -1,0 +1,14 @@
+name = "permcompass-assess"
+main = "src/index.js"
+compatibility_date = "2024-11-06"
+
+[vars]
+# Comma-separated list of browser origins allowed to call this Worker.
+# Include your GitHub Pages origin and localhost for local testing.
+ALLOWED_ORIGINS = "https://aminuabdusalam.github.io,http://localhost:5173,http://127.0.0.1:5173"
+
+# Set these via `wrangler secret put` — do NOT commit real values here.
+# AZURE_OPENAI_ENDPOINT      set as secret
+# AZURE_OPENAI_DEPLOYMENT    set as secret
+# AZURE_OPENAI_API_VERSION   set as secret
+# AZURE_OPENAI_KEY           set as secret

@@ -1,9 +1,10 @@
-const CACHE_NAME = 'pc-v6';
+const CACHE_NAME = 'pc-v7';
 const ASSETS = [
   './',
   './index.html',
   './styles.css',
   './data.js',
+  './assessment.js',
   './manifest.json'
 ];
 

@@ -31,6 +31,12 @@ The green card process is opaque and overwhelming. Timelines vary by country, ca
 
 Each chapter has structured content and a quiz. Correct answers earn XP, and XP raises your level through the PermCompass tiers.
 
+## Self-sponsorship readiness assessment (AI-powered)
+
+An optional "Assess" tab runs an AI-powered readiness check against the EB-1A and EB-2 NIW rubric. The user pastes in their background, endeavor, and achievements; the app returns a structured verdict (Ready EB-1A / Ready NIW / Closable gaps / Structural gaps) with per-gate green/yellow/red, EB-1A criterion matches with evidence quotes, top gap-closers, and caveats.
+
+The AI call is proxied through a tiny Cloudflare Worker so your Azure OpenAI key stays server-side. See `worker/SETUP.md` for the 5-minute deploy walkthrough. Until the Worker is deployed and its URL is pasted into `assessment.js`, the Assess tab shows a setup notice instead of failing at request time.
+
 ## Tech
 
 | Piece | What it does |
