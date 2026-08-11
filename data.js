@@ -357,6 +357,64 @@ const CHAPTERS = [
       { q: 'What should someone track if planning for citizenship?', a: ['Travel dates, physical presence, residence, taxes, and eligibility timing', 'Only the card color', 'Only the I-140 receipt number', 'Only newspaper ad dates'], correct: 0, explain: 'Naturalization eligibility depends on several residence, presence, and conduct requirements.' },
       { q: 'What is abandonment in the green card context?', a: ['A finding that the U.S. is no longer the person\'s permanent home', 'The normal card renewal process', 'The same thing as premium processing', 'A requirement to restart recruitment every year'], correct: 0, explain: 'Abandonment concerns whether the permanent resident intended to keep the United States as home.' }
     ]
+  },
+  {
+    id: 'ch11',
+    phaseId: null,
+    title: 'Self-Sponsored Green Cards: EB-1A and EB-2 NIW',
+    icon: '🧑‍🚀',
+    description: 'The self-petition path, how it differs from employer PERM, and a readiness checklist.',
+    content: `<p>Most of this app covers the employer-sponsored path, where a company acts as the petitioner and PERM tests the labor market. But two employment-based categories let you file for yourself, with no employer and no PERM: <strong>EB-1A</strong> for people at the top of their field, and <strong>EB-2 NIW</strong> (National Interest Waiver) for people whose proposed work benefits the United States. Both are called self-sponsored or self-petitioned because you sign Form I-140 as both petitioner and beneficiary.</p>
+<h3>The core differences from employer PERM</h3>
+<p>PERM asks "can this employer find a qualified U.S. worker for this job?" Self-sponsorship asks "is this person, and this work, significant enough that the United States should skip that question entirely?" That reframing changes almost every part of the process.</p>
+<ul>
+<li><strong>Petitioner:</strong> you sign the I-140 yourself. No employer required, no job offer required, no attorney letter from HR.</li>
+<li><strong>PERM:</strong> not required. That removes 12 to 24 months from the front of the timeline.</li>
+<li><strong>Evidence focus:</strong> your record and your proposed work, not the employer's recruitment file.</li>
+<li><strong>Layoff risk:</strong> a layoff does not touch a self-sponsored petition, because the petition was never tied to a job.</li>
+<li><strong>Portability:</strong> because the petition is not employer-specific, changing jobs, starting a company, or going independent is far less risky as long as you keep working in the same field of endeavor.</li>
+<li><strong>Priority date queue:</strong> self-sponsorship skips PERM, but it does not skip the Visa Bulletin. India- and China-born applicants still wait years for EB-2 numbers. EB-1 waits are shorter but real.</li>
+<li><strong>Cost:</strong> you pay attorney fees and USCIS fees yourself instead of the employer.</li>
+</ul>
+<div class="info-card accent"><p><strong>Not either-or:</strong> nothing stops someone on the employer PERM track from also filing a self-sponsored petition in parallel. Many people do exactly that, using self-sponsorship as insurance against layoff or as a way to reach an earlier priority date.</p></div>
+<h3>EB-1A: extraordinary ability</h3>
+<p>EB-1A is retrospective. It asks what you have already done. You qualify either by receiving a one-time major international award (rare), or by meeting at least 3 of 10 regulatory criteria such as awards for excellence, membership in associations that require outstanding achievement, published material about you, judging others' work, original contributions of major significance, authored scholarly articles, a leading or critical role at distinguished organizations, high salary, and a few arts-focused criteria. Meeting 3 gets you a second look called the final merits determination, where USCIS weighs the whole record to decide whether you truly sit at the top of the field.</p>
+<h3>EB-2 NIW: national interest waiver</h3>
+<p>NIW is prospective. It asks what your proposed work will do. You must first qualify for underlying EB-2 (advanced degree or exceptional ability), then satisfy the three-prong Dhanasar test: your proposed endeavor has substantial merit and national importance, you are well-positioned to advance it, and on balance the United States benefits from waiving the job-offer and PERM requirement. NIW tends to be more accessible than EB-1A for strong-but-not-elite records, especially in fields the government has explicitly named as national priorities.</p>
+<h3>Readiness checklist</h3>
+<p>Self-sponsorship is not a shortcut. It replaces the employer's labor test with a personal evidence bar, and that bar is real. Use this checklist to see whether you are close, or whether you should build the record for another year before filing.</p>
+<h4>For EB-2 NIW, three gates</h4>
+<ul>
+<li><strong>Gate 1, qualifications:</strong> master's or higher, or bachelor's plus 5 years of progressive experience, or exceptional ability shown by at least 3 of 6 sub-factors (degree, 10+ years experience, license, salary, association membership, recognition).</li>
+<li><strong>Gate 2, endeavor:</strong> you can describe your proposed U.S. work in 2 to 3 sentences without hand-waving; the work has implications beyond one company or region; you can point to at least one government report, executive order, agency roadmap, or industry consortium document that names your area as a priority.</li>
+<li><strong>Gate 3, positioning:</strong> a record in the specific endeavor area (not just adjacent to it); 3 to 5 concrete accomplishments with measurable outcomes; 5 to 7 recommendation letters from a mix of independent experts, users or adopters of your work, and collaborators; a credible plan for the next steps.</li>
+</ul>
+<h4>For EB-1A, count documentable criteria</h4>
+<p>Not "true" — <em>documentable with evidence a reviewer can verify</em>.</p>
+<ul>
+<li>0 to 2 criteria you can document: not yet, focus on NIW.</li>
+<li>3 criteria but thin evidence: risky, expect an RFE, consider NIW instead or dual-file.</li>
+<li>4 to 5 criteria with strong evidence: worth trying, ideally with an NIW filed in parallel as a backup.</li>
+<li>6 or more criteria: strong case.</li>
+</ul>
+<h4>Universal red flags</h4>
+<ul>
+<li>You graduated in the last 12 to 18 months: too early, keep building.</li>
+<li>Your entire record is at one company with no external visibility: build the external evidence first.</li>
+<li>Every recommendation letter writer has worked with you directly: you need independent voices.</li>
+<li>Your endeavor is really just "my current job" rephrased: reframe, or wait until there is a genuine mission.</li>
+</ul>
+<div class="key-terms"><h3>Key Terms</h3><dl><dt>Self-petition</dt><dd>An I-140 immigrant petition filed by the beneficiary in their own name, with no employer petitioner.</dd><dt>EB-1A</dt><dd>Employment-based first preference category for individuals of extraordinary ability, evaluated retrospectively.</dd><dt>EB-2 NIW</dt><dd>Employment-based second preference category with a National Interest Waiver of the job-offer and labor-certification requirement.</dd><dt>Dhanasar</dt><dd>The 2016 USCIS Administrative Appeals Office decision that set the current three-prong NIW test.</dd><dt>Final merits determination</dt><dd>The second step of EB-1A review that weighs whether the record as a whole shows sustained national or international acclaim.</dd><dt>Endeavor</dt><dd>The proposed U.S. work described in an NIW petition, evaluated for national importance and the applicant's positioning to advance it.</dd></dl></div>
+<div class="info-card accent"><p><strong>Educational disclaimer:</strong> categories, criteria, and thresholds change with USCIS policy. This is a planning primer, not legal advice. Always confirm with an immigration attorney before filing.</p></div>`,
+    quiz: [
+      { q: 'Which requirement does self-sponsorship remove that employer PERM requires?', a: ['The Department of Labor PERM labor market test', 'The I-485 adjustment of status step', 'The Visa Bulletin priority date wait', 'The medical exam'], correct: 0, explain: 'Self-sponsored EB-1A and NIW petitions do not need a PERM labor certification, which typically saves 12 to 24 months.' },
+      { q: 'In a self-sponsored petition, who signs Form I-140 as the petitioner?', a: ['The beneficiary themselves', 'The most recent U.S. employer', 'The Department of State', 'A designated congressional office'], correct: 0, explain: 'Self-petition means the applicant files I-140 in their own name; there is no employer petitioner.' },
+      { q: 'What is the main difference in evidence focus between EB-1A and EB-2 NIW?', a: ['EB-1A is retrospective (what you have done); NIW is prospective (what your endeavor will do)', 'EB-1A requires PERM but NIW does not', 'EB-1A is only for artists; NIW is only for scientists', 'EB-1A skips the Visa Bulletin but NIW does not'], correct: 0, explain: 'EB-1A weighs sustained past acclaim; NIW weighs the merit and national importance of proposed future work.' },
+      { q: 'How many of the ten EB-1A regulatory criteria must an applicant meet at minimum, absent a one-time major award?', a: ['Three', 'One', 'Five', 'All ten'], correct: 0, explain: 'Applicants must meet at least 3 of the 10 criteria, and then USCIS conducts a final merits determination on the record as a whole.' },
+      { q: 'Which of the following is NOT one of the three Dhanasar prongs for NIW?', a: ['The employer has completed PERM recruitment', 'The proposed endeavor has substantial merit and national importance', 'The applicant is well-positioned to advance the endeavor', 'On balance, the U.S. benefits from waiving the job-offer requirement'], correct: 0, explain: 'PERM is not part of Dhanasar; the whole point of NIW is to waive the job-offer and PERM requirement.' },
+      { q: 'A software engineer with a strong internal record but no external publications, talks, or independent recognition is best advised to:', a: ['Build external, independently verifiable evidence before self-petitioning', 'File EB-1A immediately with only internal reference letters', 'Ask their manager to waive the PERM requirement', 'File an I-485 without an approved I-140'], correct: 0, explain: 'Self-sponsorship rests on evidence a stranger can verify. Internal-only records are usually not enough on their own.' },
+      { q: 'How does a layoff affect a self-sponsored petition compared to an employer-sponsored PERM case?', a: ['A layoff does not touch a self-sponsored petition because it was never tied to an employer', 'It cancels both petitions equally', 'It only affects EB-1A cases', 'It automatically converts the petition to EB-3'], correct: 0, explain: 'Because there is no employer petitioner in a self-sponsored case, employer changes and layoffs do not affect the pending petition.' }
+    ]
   }
 ];
 

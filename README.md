@@ -1,6 +1,6 @@
 # PermCompass
 
-A gamified, offline-capable Progressive Web App that helps Microsoft employees and friends navigate the employer-sponsored green card journey.
+A gamified, offline-capable Progressive Web App that helps Microsoft employees and friends navigate the green card journey — employer-sponsored (PERM) as the main track, with a companion primer on self-sponsored paths (EB-1A and EB-2 NIW).
 
 **Live site:** https://aminuabdusalam.github.io/PermCompass/
 
@@ -27,6 +27,7 @@ The green card process is opaque and overwhelming. Timelines vary by country, ca
 9. Phase 8: I-485 or Consular Processing
 10. Phase 9: Green Card Issued
 11. After the Green Card: Life as an LPR
+12. Self-Sponsored Green Cards: EB-1A and EB-2 NIW
 
 Each chapter has structured content and a quiz. Correct answers earn XP, and XP raises your level through the PermCompass tiers.
 
