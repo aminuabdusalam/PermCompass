@@ -1552,3 +1552,19 @@ body {
   color: var(--text-secondary);
   margin-top: 12px;
 }
+
+
+/* Letter-plan row: three numeric fields side-by-side on wide screens */
+.assess-letters-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 8px;
+}
+.assess-letters-row label {
+  margin-top: 0;
+  font-size: 0.85rem;
+}
+@media (max-width: 520px) {
+  .assess-letters-row { grid-template-columns: 1fr; }
+}

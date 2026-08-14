@@ -385,12 +385,30 @@ const CHAPTERS = [
 <p>Self-sponsorship is not a shortcut. It replaces the employer's labor test with a personal evidence bar, and that bar is real. Use this checklist to see whether you are close, or whether you should build the record for another year before filing.</p>
 <h4>For EB-2 NIW, three gates</h4>
 <ul>
-<li><strong>Gate 1, qualifications:</strong> master's or higher, or bachelor's plus 5 years of progressive experience, or exceptional ability shown by at least 3 of 6 sub-factors (degree, 10+ years experience, license, salary, association membership, recognition).</li>
+<li><strong>Gate 1, qualifications</strong> - any ONE of these three paths qualifies you for underlying EB-2. They are equally valid, not ranked:
+  <ul>
+  <li><em>Advanced degree path</em>: U.S. master's or higher, or the foreign equivalent.</li>
+  <li><em>Bachelor's plus experience path</em>: U.S. bachelor's plus at least 5 years of progressive post-degree experience in the specialty.</li>
+  <li><em>Exceptional ability path</em>: at least 3 of 6 sub-factors - a degree relating to the field, 10+ years of full-time experience, a professional license, high salary, membership in professional associations, or recognition for achievements. This path is often the real route for people without an advanced degree, and it is the one that most aligns with the evidence categories below.</li>
+  </ul>
+</li>
 <li><strong>Gate 2, endeavor:</strong> you can describe your proposed U.S. work in 2 to 3 sentences without hand-waving; the work has implications beyond one company or region; you can point to at least one government report, executive order, agency roadmap, or industry consortium document that names your area as a priority.</li>
-<li><strong>Gate 3, positioning:</strong> a record in the specific endeavor area (not just adjacent to it); 3 to 5 concrete accomplishments with measurable outcomes; 5 to 7 recommendation letters from a mix of independent experts, users or adopters of your work, and collaborators; a credible plan for the next steps.</li>
+<li><strong>Gate 3, positioning:</strong> a record in the specific endeavor area (not just adjacent to it); 3 to 5 concrete accomplishments with measurable outcomes; a plan to gather 6 to 8 recommendation letters weighted toward independent voices (see the letter rule below); a credible plan for the next steps.</li>
 </ul>
+<h4>Evidence categories in practice</h4>
+<p>In practice, a well-prepared NIW petition looks a lot like an EB-1A petition - it collects the same kinds of evidence. Many petitioners think in these seven categories rather than the formal Gate 1 sub-factors. Each is worth building deliberately.</p>
+<ul>
+<li><strong>Awards for excellence</strong> - third-party recognition judged by experts. Best-paper awards, competitive fellowships, industry awards with public selection criteria. Not employee-of-the-month.</li>
+<li><strong>Professional memberships</strong> - selective tiers that require outstanding achievement, such as IEEE Senior Member, ACM Distinguished Member, or editorial board seats. Paid-membership associations do not count.</li>
+<li><strong>Speaking opportunities</strong> - invited talks at professional or academic venues, keynote or featured sessions, tutorials, or panel appearances where you were selected on merit.</li>
+<li><strong>Media features about you personally</strong> - profiles or long-form interviews in publications with editorial standards, where you are the subject.</li>
+<li><strong>Media features about your work</strong> - third-party coverage of a specific paper, product, or contribution you led, with you named as the person behind it.</li>
+<li><strong>Publications and authored articles</strong> - peer-reviewed papers, published book chapters, technical standards you edited, or long-form pieces in respected trade publications.</li>
+<li><strong>Letters of recommendation</strong> - the connective tissue that makes everything above legible.</li>
+</ul>
+<div class="info-card accent"><p><strong>Letter distribution rule:</strong> aim for 6 to 8 letters, with at least half from people who have never worked with you or your employer. A common first-time mistake is a lopsided split like six letters from the current employer and two from outside - reviewers actively discount coordinated internal voices. Rebalance toward independent professors, adopters of your work, journalists who covered you, standards-body collaborators, or engineers at other companies. Internal letters still add value if they come from skip-level executives, Distinguished Engineers, or cross-org collaborators, but they should not dominate the file.</p></div>
 <h4>For EB-1A, count documentable criteria</h4>
-<p>Not "true" — <em>documentable with evidence a reviewer can verify</em>.</p>
+<p>Not "true" - <em>documentable with evidence a reviewer can verify</em>.</p>
 <ul>
 <li>0 to 2 criteria you can document: not yet, focus on NIW.</li>
 <li>3 criteria but thin evidence: risky, expect an RFE, consider NIW instead or dual-file.</li>
@@ -401,7 +419,7 @@ const CHAPTERS = [
 <ul>
 <li>You graduated in the last 12 to 18 months: too early, keep building.</li>
 <li>Your entire record is at one company with no external visibility: build the external evidence first.</li>
-<li>Every recommendation letter writer has worked with you directly: you need independent voices.</li>
+<li>Recommendation letters heavily concentrated at one employer (for example, 6 internal and 2 external): rebalance before filing.</li>
 <li>Your endeavor is really just "my current job" rephrased: reframe, or wait until there is a genuine mission.</li>
 </ul>
 <div class="key-terms"><h3>Key Terms</h3><dl><dt>Self-petition</dt><dd>An I-140 immigrant petition filed by the beneficiary in their own name, with no employer petitioner.</dd><dt>EB-1A</dt><dd>Employment-based first preference category for individuals of extraordinary ability, evaluated retrospectively.</dd><dt>EB-2 NIW</dt><dd>Employment-based second preference category with a National Interest Waiver of the job-offer and labor-certification requirement.</dd><dt>Dhanasar</dt><dd>The 2016 USCIS Administrative Appeals Office decision that set the current three-prong NIW test.</dd><dt>Final merits determination</dt><dd>The second step of EB-1A review that weighs whether the record as a whole shows sustained national or international acclaim.</dd><dt>Endeavor</dt><dd>The proposed U.S. work described in an NIW petition, evaluated for national importance and the applicant's positioning to advance it.</dd></dl></div>

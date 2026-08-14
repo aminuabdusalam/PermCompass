@@ -54,6 +54,7 @@
     root.querySelectorAll('textarea.assess-achievement').forEach(function (t) {
       var s = t.value.trim(); if (s) achievements.push(s);
     });
+    var num = function (id) { var v = val(id); return v === '' ? null : Number(v); };
     return {
       education: val('assess-education'),
       field: val('assess-field'),
@@ -62,7 +63,20 @@
       country_of_birth: val('assess-country'),
       endeavor: val('assess-endeavor'),
       cv_paste: val('assess-cv'),
-      achievements: achievements
+      achievements: achievements,
+      evidence: {
+        awards: val('ev-awards'),
+        memberships: val('ev-memberships'),
+        speaking: val('ev-speaking'),
+        media_personal: val('ev-media-personal'),
+        media_work: val('ev-media-work'),
+        publications: val('ev-publications')
+      },
+      letters: {
+        planned_total: num('ev-letters-total'),
+        planned_external: num('ev-letters-external'),
+        planned_current_employer: num('ev-letters-employer')
+      }
     };
   }
 
@@ -103,6 +117,35 @@
       '<h3>Optional: paste your CV or LinkedIn summary</h3>' +
       '<p class="assess-help">Copy and paste any text you\'d like the reviewer to consider. Skip if you\'d rather rely on the fields above.</p>' +
       '<textarea id="assess-cv" rows="6" placeholder="Paste text only. Do not paste files or images.">' + esc(draft.cv_paste || '') + '</textarea>' +
+
+      '<h3>Evidence categories (optional but strongly recommended)</h3>' +
+      '<p class="assess-help">List what you have in each category. In practice a well-prepared NIW petition uses these same seven buckets as EB-1A. Be specific - names of awards, venues, publications, and dates carry more weight than adjectives.</p>' +
+
+      '<label>Awards for excellence' +
+      '<textarea id="ev-awards" rows="2" placeholder="e.g. Best Paper at KDD 2024; MIT Innovator Under 35 finalist 2023.">' + esc((draft.evidence && draft.evidence.awards) || '') + '</textarea></label>' +
+
+      '<label>Professional memberships (selective tiers only)' +
+      '<textarea id="ev-memberships" rows="2" placeholder="e.g. IEEE Senior Member (2024); editorial board of ACM Queue.">' + esc((draft.evidence && draft.evidence.memberships) || '') + '</textarea></label>' +
+
+      '<label>Speaking opportunities (invited talks, keynotes, panels)' +
+      '<textarea id="ev-speaking" rows="2" placeholder="e.g. Invited talk at Stanford AI Seminar 2024; keynote at O\'Reilly OSCON 2023.">' + esc((draft.evidence && draft.evidence.speaking) || '') + '</textarea></label>' +
+
+      '<label>Media features about you personally' +
+      '<textarea id="ev-media-personal" rows="2" placeholder="e.g. Profile in Wired (Mar 2024); long-form interview on Lex Fridman podcast.">' + esc((draft.evidence && draft.evidence.media_personal) || '') + '</textarea></label>' +
+
+      '<label>Media features about your work' +
+      '<textarea id="ev-media-work" rows="2" placeholder="e.g. TechCrunch write-up of tool X; Gartner report citing paper Y.">' + esc((draft.evidence && draft.evidence.media_work) || '') + '</textarea></label>' +
+
+      '<label>Publications and authored articles' +
+      '<textarea id="ev-publications" rows="2" placeholder="e.g. 4 NeurIPS papers, 2 IEEE Transactions articles, 1 book chapter. Note total citations if useful.">' + esc((draft.evidence && draft.evidence.publications) || '') + '</textarea></label>' +
+
+      '<h3>Recommendation letters plan</h3>' +
+      '<p class="assess-help">Target 6-8 letters with at least half from people who have never worked with you or your employer. If you leave these blank, the reviewer will skip the letter-distribution check.</p>' +
+      '<div class="assess-letters-row">' +
+        '<label>Planned total<input id="ev-letters-total" type="number" min="0" max="20" step="1" value="' + esc((draft.letters && draft.letters.planned_total != null) ? draft.letters.planned_total : '') + '" /></label>' +
+        '<label>From independent writers<input id="ev-letters-external" type="number" min="0" max="20" step="1" value="' + esc((draft.letters && draft.letters.planned_external != null) ? draft.letters.planned_external : '') + '" /></label>' +
+        '<label>From current employer<input id="ev-letters-employer" type="number" min="0" max="20" step="1" value="' + esc((draft.letters && draft.letters.planned_current_employer != null) ? draft.letters.planned_current_employer : '') + '" /></label>' +
+      '</div>' +
 
       '<div class="content-actions">' +
         '<button type="button" class="btn btn-primary btn-lg" id="btn-assess-run">Assess my readiness</button>' +

@@ -12,3 +12,6 @@ Desktop.ini
 # Logs
 *.log
 npm-debug.log*
+
+# Private case-building scratch (never committed)
+_evidence/

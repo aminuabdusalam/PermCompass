@@ -21,24 +21,32 @@ You are NOT a lawyer. You do NOT give legal advice. You produce a structured, ev
 
 Rubric you MUST use:
 
-EB-2 NIW — three gates, each green / yellow / red:
-- gate1_qualifications: has US master's or higher, OR US bachelor's + 5 years progressive post-degree experience, OR "exceptional ability" (at least 3 of: field-relevant degree, 10+ years full-time experience, professional license, high salary, professional association membership, recognition for achievements).
-- gate2_endeavor: proposed US work is describable in 2-3 concrete sentences, has implications beyond one company/region, and ties to a nameable US national priority (AI, semiconductors, cybersecurity, healthcare, energy, STEM, critical supply chains, public health, etc.).
-- gate3_positioning: applicant has a specific record IN the endeavor area (not just adjacent), 3+ concrete accomplishments with measurable outcomes, credible plan for next steps, and could plausibly gather 5-7 letters mixing independent experts, adopters/users, and collaborators.
+EB-2 NIW - three gates, each green / yellow / red:
+- gate1_qualifications: EB-2 eligibility is met by ANY ONE of three equally valid paths - do NOT require all three. Green if any one clearly holds; yellow if one is plausibly met but not documented; red only if none of the three plausibly hold.
+    Path A (advanced degree): US master's or higher, or foreign equivalent.
+    Path B (bachelor's + experience): US bachelor's plus 5 years progressive post-degree experience in the specialty.
+    Path C (exceptional ability): at least 3 of 6 sub-factors - degree in the field, 10+ years full-time experience, professional license, high salary, professional association membership, or recognition/significant contributions. This is often the real path for early-career or non-traditional applicants; do NOT downgrade someone just because they lack the 5-year experience path if Path C clearly holds.
+- gate2_endeavor: proposed US work is describable in 2-3 concrete sentences, has implications beyond one company or region, and ties to a nameable US national priority (AI, semiconductors, cybersecurity, healthcare, energy, STEM, critical supply chains, public health, etc.).
+- gate3_positioning: applicant has a specific record IN the endeavor area (not just adjacent), 3+ concrete accomplishments with measurable outcomes, credible plan for next steps, and could plausibly gather 6-8 letters with at least half from independent voices (see letter distribution rule below).
 
-EB-1A — count how many of the 10 regulatory criteria the applicant can DOCUMENT with evidence a reviewer could verify (not "true" — documentable):
+Evidence categories to look for (in practice a well-prepared NIW petition uses these same seven categories as EB-1A):
+awards, memberships, speaking, media_personal (about the applicant), media_work (about their work), publications, letters.
+
+EB-1A - count how many of the 10 regulatory criteria the applicant can DOCUMENT with evidence a reviewer could verify (not "true" - documentable):
   awards, membership, published_about, judging, original_contributions, scholarly_articles, leading_role, high_salary, artistic, commercial.
 
 Verdict rules:
 - READY_EB1A: 6+ documentable EB-1A criteria AND strong final-merits story.
 - READY_NIW: all 3 NIW gates green, EB-1A 0-3 criteria.
 - CLOSABLE_GAPS: at most 1-2 items missing across NIW gates, OR EB-1A at 3-5 with thin evidence.
-- STRUCTURAL_GAPS: NIW gate 1 fails, or record is entirely internal to one employer with no external visibility, or recent graduate < 18 months out.
+- STRUCTURAL_GAPS: NIW gate 1 fails all three paths, or record is entirely internal to one employer with no external visibility, or recent graduate < 18 months out.
+
+Letter distribution rule (flag as caveat if violated): target 6-8 recommendation letters with at least half from writers who have never worked with the applicant or their employer. A lopsided split like 6 internal + 2 external is a real weakness reviewers discount.
 
 Universal red flags (mention in caveats when present):
 - graduated < 18 months ago
 - entire record inside one company with no external visibility
-- all recommendation-letter writers would be direct collaborators
+- recommendation letters heavily concentrated at one employer (e.g. 6 internal + 2 external)
 - endeavor is really just "my current job" rephrased
 
 Output rules:
@@ -110,6 +118,30 @@ function buildUserMessage(intake) {
     intake.achievements.forEach((a, i) => {
       if (a && typeof a === 'string' && a.trim()) parts.push(`${i + 1}. ${a.trim()}`);
     });
+  }
+  const ev = intake.evidence || {};
+  const evLabels = {
+    awards: 'Awards for excellence',
+    memberships: 'Professional memberships',
+    speaking: 'Speaking opportunities',
+    media_personal: 'Media features about the applicant',
+    media_work: 'Media features about their work',
+    publications: 'Publications and authored articles'
+  };
+  const evEntries = Object.keys(evLabels).filter(k => ev[k] && String(ev[k]).trim());
+  if (evEntries.length) {
+    parts.push('');
+    parts.push('EVIDENCE CATEGORIES (applicant\'s own words):');
+    evEntries.forEach(k => parts.push(`- ${evLabels[k]}: ${String(ev[k]).trim()}`));
+  }
+  const letters = intake.letters || {};
+  if (letters.planned_total != null || letters.planned_external != null || letters.planned_current_employer != null) {
+    parts.push('');
+    parts.push('LETTER PLAN:');
+    if (letters.planned_total != null) parts.push(`- Planned total: ${letters.planned_total}`);
+    if (letters.planned_external != null) parts.push(`- Planned from independent writers: ${letters.planned_external}`);
+    if (letters.planned_current_employer != null) parts.push(`- Planned from current employer: ${letters.planned_current_employer}`);
+    parts.push('(Use these numbers to apply the letter distribution rule; flag as a caveat if at least half are NOT from independent writers.)');
   }
   if (intake.cv_paste) {
     parts.push('');

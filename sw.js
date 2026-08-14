@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pc-v7';
+const CACHE_NAME = 'pc-v8';
 const ASSETS = [
   './',
   './index.html',
